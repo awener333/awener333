@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeStart Navigator - Выбери язык программирования</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+line-height: 1.6;
+min-height: 100vh;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.block {
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+padding: 40px;
+margin: 20px 0;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+font-size: 3em;
+margin-bottom: 20px;
+background: linear-gradient(135deg, #fff, #e0e0e0);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+h2 {
+font-size: 2em;
+margin-bottom: 30px;
+color: #ffd700;
+}
+
+p {
+font-size: 1.2em;
+margin-bottom: 20px;
+opacity: 0.9;
+}
+
+.btn {
+display: inline-block;
+padding: 15px 40px;
+font-size: 1.2em;
+border: none;
+border-radius: 50px;
+background: linear-gradient(135deg, #ffd700, #ffa500);
+color: white;
+cursor: pointer;
+transition: transform 0.3s, box-shadow 0.3s;
+margin: 10px;
+text-decoration: none;
+}
+
+.btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+background: rgba(255, 255, 255, 0.2);
+}
+
+.hidden {
+display: none;
+}
+
+.progress-bar {
+width: 100%;
+height: 10px;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 5px;
+margin: 30px 0;
+}
+
+.progress {
+height: 100%;
+background: linear-gradient(90deg, #ffd700, #ffa500);
+border-radius: 5px;
+transition: width 0.3s;
+}
+
+.question {
+font-size: 1.5em;
+margin-bottom: 30px;
+color: #ffd700;
+}
+
+.options {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+margin: 30px 0;
+}
+
+.option {
+background: rgba(255, 255, 255, 0.1);
+padding: 25px;
+border-radius: 15px;
+cursor: pointer;
+transition: all 0.3s;
+text-align: center;
+border: 2px solid transparent;
+}
+
+.option:hover {
+background: rgba(255, 255, 255, 0.2);
+transform: translateY(-5px);
+}
+
+.option.selected {
+border-color: #ffd700;
+background: rgba(255, 215, 0, 0.2);
+}
+
+.option-icon {
+font-size: 2.5em;
+margin-bottom: 15px;
+}
+
+.nav-buttons {
+display: flex;
+justify-content: space-between;
+margin-top: 30px;
+}
+
+.language-icon {
+font-size: 5em;
+text-align: center;
+margin: 30px 0;
+}
+
+.steps {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 25px;
+margin-top: 40px;
+}
+
+.step {
+background: rgba(255, 255, 255, 0.1);
+padding: 25px;
+border-radius: 15px;
+height: auto;
+min-height: 350px;
+display: flex;
+flex-direction: column;
+}
+
+.step p {
+font-size: 1em;
+line-height: 1.5;
+margin-bottom: 15px;
+flex-grow: 1;
+}
+
+.step code {
+font-size: 0.9em;
+padding: 12px;
+margin: 10px 0;
+white-space: pre-wrap;
+word-break: break-word;
+max-height: 200px;
+overflow-y: auto;
+}
+
+.step h4 {
+margin-bottom: 15px;
+color: #ffd700;
+}
+
+.step-number {
+width: 40px;
+height: 40px;
+background: #ffd700;
+color: #333;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+code {
+display: block;
+background: #333;
+color: #ffd700;
+padding: 15px;
+border-radius: 10px;
+margin: 20px 0;
+font-family: monospace;
+}
+
+.languages-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 20px;
+margin: 40px 0;
+}
+
+.language-card {
+background: rgba(255, 255, 255, 0.1);
+padding: 25px;
+border-radius: 15px;
+text-align: center;
+transition: transform 0.3s;
+}
+
+.language-card:hover {
+transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+.container { padding: 10px; }
+.block { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div id="block1" class="block">
+<h1>🚀 CodeStart Navigator</h1>
+<h2>Какой язык программирования учить первым?</h2>
+<p>Пройди короткий тест из 5 вопросов и получи персональную рекомендацию!</p>
+<p>✅ Ответь на 5 вопросов<br>
+✅ Узнай, какой язык тебе подходит<br>
+✅ Рассмотри 3 шага для старта</p>
+<button class="btn" onclick="startTest()">Начать тест →</button>
+</div>
+
+<div id="block2" class="block hidden">
+<h2>📝 Ответь на 5 вопросов</h2>
+<div class="progress-bar">
+<div id="progress" class="progress" style="width: 20%"></div>
+</div>
+
+<div id="questionBlock">
+</div>
+
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="prevQuestion()" id="prevBtn">← Назад</button>
+<button class="btn" onclick="nextQuestion()" id="nextBtn">Далее →</button>
+</div>
+</div>
+
+<div id="block3" class="block hidden">
+<h2>🎉 Твой результат готов!</h2>
+<div id="resultBlock">
+</div>
+<div style="text-align: center; margin-top: 30px;">
+<button class="btn" onclick="showBlock1()">На главную</button>
+<button class="btn btn-secondary" onclick="showLanguages()">Другие языки</button>
+</div>
+</div>
+
+<div id="block4" class="block hidden">
+<h2>🔍 Другие языки программирования</h2>
+<div class="languages-grid">
+<div class="language-card">
+<div class="option-icon">🐍</div>
+<h3>Python</h3>
+<p>Простой, для начинающих, AI, анализ данных</p>
+</div>
+<div class="language-card">
+<div class="option-icon">🌐</div>
+<h3>JavaScript</h3>
+<p>Для сайтов, интерактив, браузер</p>
+</div>
+<div class="language-card">
+<div class="option-icon">🎮</div>
+<h3>C#</h3>
+<p>Для игр (Unity), Windows-программ</p>
+</div>
+<div class="language-card">
+<div class="option-icon">☕</div>
+<h3>Java</h3>
+<p>Для Android, крупных компаний</p>
+</div>
+<div class="language-card">
+<div class="option-icon">⚙️</div>
+<h3>C++</h3>
+<p>Для игр, сложных программ, скорость</p>
+</div>
+</div>
+<div style="text-align: center;">
+<button class="btn" onclick="showBlock1()">На главную</button>
+<button class="btn btn-secondary" onclick="startTest()">Пройти тест</button>
+</div>
+</div>
+</div>
+
+<script>
+
+// Вопросы теста 
+
+const questions = [
+{
+text: "Что хочешь создавать?",
+options: [
+{ text: "Сайты", icon: "🌐", value: "web" },
+{ text: "Приложения для телефона", icon: "📱", value: "mobile" },
+{ text: "Игры", icon: "🎮", value: "games" },
+{ text: "Умные программы (AI, боты)", icon: "🧠", value: "ai" },
+{ text: "Программы для ПК", icon: "🖥️", value: "desktop" }
+]
+},
+{
+text: "Какой язык по сложности хочешь?",
+options: [
+{ text: "Попроще", icon: "🟢", value: "easy" },
+{ text: "Средний", icon: "🟡", value: "medium" },
+{ text: "Сложный", icon: "🔴", value: "hard" }
+]
+},
+{
+text: "Какие задачи нравятся больше?",
+options: [
+{ text: "Простые и понятные", icon: "🧩", value: "easy" },
+{ text: "Средней сложности", icon: "🎯", value: "medium" },
+{ text: "Люблю решать сложные задачи", icon: "🤯", value: "hard" }
+]
+},
+{
+text: "Как любишь работать?",
+options: [
+{ text: "Один", icon: "👤", value: "solo" },
+{ text: "В команде", icon: "👥", value: "team" },
+{ text: "Без разницы", icon: "🤝", value: "any" }
+]
+},
+{
+text: "Где хочешь работать?",
+options: [
+{ text: "В крупной компании", icon: "🏢", value: "bigcompany" },
+{ text: "В стартапе", icon: "🚀", value: "startup" },
+{ text: "На себя (фриланс)", icon: "💼", value: "freelance" }
+]
+}
+];
+
+
+// Данные языков
+
+const languages = {
+python: {
+name: "Python 🐍",
+icon: "🐍",
+desc: "Python — идеальный выбор для начинающих! Простой и понятный синтаксис, много библиотек для AI и анализа данных. Подходит для сайтов, ботов и научных задач.",
+steps: {
+install: "1. Перейди на официальный сайт Python: https://www.python.org/downloads/\n2. Выбери последнюю версию Python\n3. Скачай установщик под свою систему\n4. ВАЖНО: при установке поставь галочку 'Add Python to PATH'\n5. Установи среду для разработки PyCharm: https://www.jetbrains.com/pycharm/download/\n6. Открой PyCharm → New project → поставь галочку 'Create welcome script' → Create",
+code:  '# Переменные, ввод, числа, условия\n\nprint("=== Калькулятор возраста ===")\n\n# 1. Переменные и ввод\nname = input("Имя: ") # текст\nbirth_year = input("Год рождения: ") # текст\n\n# 2. Превращаем текст в число\nbirth_year = int(birth_year)\n\n# 3. Считаем\nage = 2026 - birth_year\n\n# 4. Выводим\nprint(name + ", тебе", age, "года/лет")\n\n# 5. Условие\nif age >= 18:\n print("Ты взрослый")\nelse:\n print("Ты школьник")\n\n# 6. Дроби (float)\npizza = float(input("Цена пиццы: "))\ncoke = float(input("Цена сока: "))\nprint("Всего:", pizza + coke, "руб.")',
+project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'"
+}
+},
+javascript: {
+name: "JavaScript 🌐",
+icon: "🌐",
+desc: "JavaScript — язык веба! Всё, что ты видишь в браузере, сделано на JS. Быстрый старт, мгновенный результат, много возможностей для творчества.",
+steps: {
+install: "Достаточно браузера и любого текстового редактора",
+code: 'console.log("Привет, мир!");\nlet name = prompt("Как тебя зовут?");\nalert(`Привет, ${name}!`);',
+project: "Создай простую страницу с кнопкой и анимацией"
+}
+},
+csharp: {
+name: "C# 🎮",
+icon: "🎮",
+desc: "C# — твой выбор для создания игр! На нём работает Unity. Также хорош для Windows-программ и приложений для крупных компаний.",
+steps: {
+install: "Установи Visual Studio Community с официального сайта Microsoft",
+code: 'Console.WriteLine("Привет, мир!");\nConsole.Write("Как тебя зовут? ");\nstring name = Console.ReadLine();\nConsole.WriteLine($"Привет, {name}!");',
+project: "Создай простую игру 'Угадай число' в Unity"
+}
+},
+java: {
+name: "Java ☕",
+icon: "☕",
+desc: "Java — стандарт для Android-разработки и крупных корпоративных систем. Стабильный, надежный, востребованный язык с высокой зарплатой.",
+steps: {
+install: "Установи JDK и IntelliJ IDEA Community Edition",
+code: 'public class Main {\n public static void main(String[] args) {\n System.out.println("Привет, мир!");\n }\n}',
+project: "Создай простое Android-приложение или калькулятор"
+}
+},
+cpp: {
+name: "C++ ⚙️",
+icon: "⚙️",
+desc: "C++ для тех, кто хочет понять, как всё работает внутри. Игры, сложные программы, высокая производительность — его стихия.",
+steps: {
+install: "Установи компилятор (MinGW для Windows или g++ для Linux/Mac)",
+code: '#include <iostream>\nusing namespace std;\nint main() {\n cout << "Привет, мир!" << endl;\n return 0;\n}',
+project: "Создай программу для решения квадратных уравнений"
+}
+}
+};
+
+
+// Переменные
+
+let currentQuestion = 0;
+let answers = [];
+let result = null;
+
+
+// Функции для блоков
+
+function showBlock(blockNumber) {
+document.getElementById('block1').classList.add('hidden');
+document.getElementById('block2').classList.add('hidden');
+document.getElementById('block3').classList.add('hidden');
+document.getElementById('block4').classList.add('hidden');
+
+document.getElementById(`block${blockNumber}`).classList.remove('hidden');
+}
+
+function showBlock1() { showBlock(1); }
+function showBlock3() { showBlock(3); }
+
+// Функции
+
+function startTest() {
+currentQuestion = 0;
+answers = [];
+showQuestion();
+showBlock(2);
+}
+
+function showQuestion() {
+const q = questions[currentQuestion];
+let html = `<div class="question">${q.text}</div>`;
+html += '<div class="options">';
+
+q.options.forEach((opt, index) => {
+const isSelected = answers[currentQuestion] === opt.value;
+html += `
+<div class="option ${isSelected ? 'selected' : ''}" onclick="selectAnswer(${index})">
+<div class="option-icon">${opt.icon}</div>
+<div>${opt.text}</div>
+</div>
+`;
+});
+
+html += '</div>';
+document.getElementById('questionBlock').innerHTML = html;
+
+// Обновить прогресс
+
+document.getElementById('progress').style.width = ((currentQuestion + 1) / questions.length * 100) + '%';
+
+// Кнопки
+
+document.getElementById('prevBtn').disabled = currentQuestion === 0;
+}
+
+function selectAnswer(optionIndex) {
+answers[currentQuestion] = questions[currentQuestion].options[optionIndex].value;
+showQuestion();
+}
+
+function prevQuestion() {
+if (currentQuestion > 0) {
+currentQuestion--;
+showQuestion();
+}
+}
+
+function nextQuestion() {
+if (!answers[currentQuestion]) {
+alert('Выбери ответ!');
+return;
+}
+
+if (currentQuestion < questions.length - 1) {
+currentQuestion++;
+showQuestion();
+} else {
+calculateResult();
+}
+}
+
+// Подсчет результатов
+function calculateResult() {
+const scores = { python: 0, javascript: 0, csharp: 0, java: 0, cpp: 0 };
+
+// Вопрос 1
+
+if (answers[0] === 'web') {
+scores.javascript += 5;
+scores.python += 3;
+}
+if (answers[0] === 'mobile') {
+scores.java += 5;
+scores.csharp += 4;
+scores.javascript += 3;
+}
+if (answers[0] === 'games') {
+scores.csharp += 5;
+scores.cpp += 5;
+scores.python += 2;
+}
+if (answers[0] === 'ai') {
+scores.python += 5;
+scores.cpp += 2;
+}
+if (answers[0] === 'desktop') {
+scores.csharp += 5;
+scores.cpp += 5;
+scores.java += 3;
+scores.python += 3;
+}
+
+// Вопрос 2
+
+if (answers[1] === 'easy') {
+scores.python += 5;
+scores.javascript += 4;
+}
+if (answers[1] === 'medium') {
+scores.csharp += 3;
+scores.java += 3;
+}
+if (answers[1] === 'hard') {
+scores.cpp += 5;
+scores.java += 3;
+}
+
+// Вопрос 3
+
+if (answers[2] === 'easy') {
+scores.python += 5;
+scores.javascript += 4;
+}
+if (answers[2] === 'medium') {
+scores.csharp += 3;
+scores.java += 3;
+}
+if (answers[2] === 'hard') {
+scores.cpp += 5;
+scores.java += 3;
+}
+
+// Вопрос 4
+
+if (answers[3] === 'solo') {
+scores.python += 5;
+scores.javascript += 4;
+}
+if (answers[3] === 'team') {
+scores.csharp += 5;
+scores.java += 5;
+}
+if (answers[3] === 'any') {
+scores.python += 2;
+scores.javascript += 2;
+scores.csharp += 2;
+scores.java += 2;
+scores.cpp += 2;
+}
+
+// Вопрос 5
+
+if (answers[4] === 'bigcompany') {
+scores.csharp += 5;
+scores.java += 5;
+}
+if (answers[4] === 'startup') {
+scores.python += 5;
+scores.javascript += 5;
+}
+if (answers[4] === 'freelance') {
+scores.javascript += 5;
+scores.python += 4;
+}
+
+// Нахождение языка с максимальным баллом
+let maxLang = 'python';
+let maxScore = 0;
+
+for (let lang in scores) {
+if (scores[lang] > maxScore) {
+maxScore = scores[lang];
+maxLang = lang;
+}
+}
+
+result = languages[maxLang];
+showResult();
+}
+
+// Показ результата
+
+function showResult() {
+let html = `
+<div class="language-icon">${result.icon}</div>
+<h2 style="text-align: center;">${result.name}</h2>
+<p style="text-align: center; font-size: 1.3em;">${result.desc}</p>
+
+<h3 style="margin-top: 40px;">📌 3 шага для старта:</h3>
+<div class="steps">
+<div class="step">
+<div class="step-number">1</div>
+<h4>Установка</h4>
+<p>${result.steps.install}</p>
+</div>
+<div class="step">
+<div class="step-number">2</div>
+<h4>Первый код</h4>
+<code>${result.steps.code}</code>
+</div>
+<div class="step">
+<div class="step-number">3</div>
+<h4>Проект</h4>
+<p>${result.steps.project}</p>
+</div>
+</div>
+`;
+
+document.getElementById('resultBlock').innerHTML = html;
+showBlock(3);
+}
+
+
+// См. другие языки
+
+function showLanguages() {
+showBlock(4);
+}
+</script>
+</body>
+</html>
