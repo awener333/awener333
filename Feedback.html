@@ -150,7 +150,7 @@ h1 { font-size: 2em; }
 <h2>Обратная связь</h2>
 <p>Есть вопросы, предложения или замечания? Напиши нам! Мы обязательно ответим.</p>
 
-<form id="feedbackForm">
+<form action="https://formspree.io/f/xjgaeayr" method="POST">
 <div class="form-group">
 <label for="name">👤 Ваше имя</label>
 <input type="text" id="name" name="name" placeholder="Например: Анна" required>
@@ -177,34 +177,5 @@ h1 { font-size: 2em; }
 </div>
 </div>
 </div>
-
-<script>
-document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-e.preventDefault();
-
-let name = document.getElementById('name').value;
-let email = document.getElementById('email').value;
-let message = document.getElementById('message').value;
-
-// Здесь можно добавить отправку на сервер
-// Но пока просто показываем сообщение
-
-let messageDiv = document.getElementById('formMessage');
-messageDiv.style.display = 'block';
-messageDiv.className = 'message success';
-messageDiv.innerHTML = `
-✅ Спасибо, ${name}! Твоё сообщение отправлено.<br>
-Мы ответим тебе на <strong>${email}</strong> в ближайшее время.
-`;
-
-// Очищаем форму
-document.getElementById('feedbackForm').reset();
-});
-
-function clearForm() {
-document.getElementById('feedbackForm').reset();
-document.getElementById('formMessage').style.display = 'none';
-}
-</script>
 </body>
 </html>
