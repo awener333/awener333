@@ -398,9 +398,38 @@ icon: "🌐",
 desc: "JavaScript — язык веба! Всё, что ты видишь в браузере, сделано на JS. Быстрый старт, мгновенный результат, много возможностей для творчества.",
 steps: {
 install: "1.Открой блокнот 2.напиши код 3.сохрани его с расширением .html 4.открой его в браузере",
-code: 'console.log("=== КАЛЬКУЛЯТОР ЗАРПЛАТЫ ===\\n");\n\nlet name = prompt("Имя сотрудника:");\nlet zarplata = Number(prompt("Зарплата до вычета налогов:"));\nlet taxRate = Number(prompt("Ставка налога (%):"));\n\nlet tax = zarplata * taxRate / 100;\nlet zarplataAfterTax = zarplata - tax;\n\nconsole.log("\\n--- РЕЗУЛЬТАТ ---");\nconsole.log("Сотрудник:", name);\nconsole.log("Налог к удержанию:", tax, "руб.");\nconsole.log("Зарплата на руки:", zarplataAfterTax, "руб.");\n\nif (zarplataAfterTax > 20000) {\n console.log("Хорошая зарплата!");\n} else {\n console.log("Подумай о подработке");\n}\n\nalert(`Сотрудник ${name}, зарплата: ${zarplataAfterTax} руб.`);',
+code: `<!DOCTYPE html>
+<html>
+<head>
+<title>Мой первый код на JavaScript</title>
+</head>
+<body>
+<h1>Программа для расчёта зарплаты</h1>
+<p>Смотри результат в консоли (F12 → Console)</p>
+
+<script>
+console.log("КАЛЬКУЛЯТОР ЗАРПЛАТЫ");
+console.log("");
+
+let name = prompt("Имя сотрудника:");
+let zarplata = Number(prompt("Зарплата до вычета налогов:"));
+let taxRate = Number(prompt("Ставка налога (%):"));
+
+let tax = zarplata * taxRate / 100;
+let zarplataAfterTax = zarplata - tax;
+
+console.log("Сотрудник:", name);
+console.log("Налог к удержанию:", tax, "руб.");
+console.log("Зарплата на руки:", zarplataAfterTax, "руб.");
+
+if (zarplataAfterTax > 20000) {
+console.log(" Хорошая зарплата!");
+} else {
+console.log(" Подумай о подработке");
+}
+
 project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести в консоль:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
-answer:  `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в браузере):
+answer:  '# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в браузере):
 
 let name = "Анна";
 let zarplata = 50000;
@@ -419,7 +448,7 @@ console.log("Хорошая зарплата!");
 console.log("Подумай о подработке");
 }
 
-alert(\`Сотрудник \${name}, зарплата: \${zarplataAfterTax} руб.\`);`
+alert(\`Сотрудник \${name}, зарплата: \${zarplataAfterTax} руб.\`);'
 }
 },
 csharp: {
