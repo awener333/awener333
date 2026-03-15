@@ -373,7 +373,23 @@ steps: {
 install: "1. Перейди на официальный сайт Python: https://www.python.org/downloads/\n2. Выбери последнюю версию Python\n3. Скачай установщик под свою систему\n4. ВАЖНО: при установке поставь галочку 'Add Python to PATH'\n5. Установи среду для разработки PyCharm: https://www.jetbrains.com/pycharm/download/\n6. Открой PyCharm → New project → поставь галочку 'Create welcome script' → Create",
 code:  '# Переменные, ввод, числа, условия\n\nprint("=== Калькулятор возраста ===")\n\n# 1. Переменные и ввод\nname = input("Имя: ") # текст\nbirth_year = input("Год рождения: ") # текст\n\n# 2. Превращаем текст в число\nbirth_year = int(birth_year)\n\n# 3. Считаем\nage = 2026 - birth_year\n\n# 4. Выводим\nprint(name + ", тебе", age, "года/лет")\n\n# 5. Условие\nif age >= 18:\n print("Ты взрослый")\nelse:\n print("Ты школьник")\n\n# 6. Дроби (float)\npizza = float(input("Цена пиццы: "))\ncoke = float(input("Цена сока: "))\nprint("Всего:", pizza + coke, "руб.")',
 project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
-answer:  '# Ввод данных/n/nname = input("Имя сотрудника: ")/nzarplata = float(input("Зарплата до вычета налогов: "))/ntax_rate = float(input("Ставка налога (%): "))/n/n# Расчёты/n/ntax = zarplata * tax_rate / 100/nzarplata_after_tax = zarplata - tax/n/n# Вывод результатов/n/nprint("Сотрудник:", name)/nprint("Налог к удержанию:", tax, "руб.")/nprint("Зарплата на руки:", zarplata_after_tax, "руб.")/n/n# Проверка условия/n/nif zarplata_after_tax > 20000:/nprint("Хорошая зарплата!")/nelse:/nprint("Подумай о подработке")'
+answer:  `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в PyCharm):
+
+name = "Анна"
+zarplata = 50000
+tax_rate = 13
+
+tax = zarplata * tax_rate / 100
+zarplata_after_tax = zarplata - tax
+
+print("Сотрудник:", name)
+print("Налог к удержанию:", tax, "руб.")
+print("Зарплата на руки:", zarplata_after_tax, "руб.")
+
+if zarplata_after_tax > 20000:
+print("Хорошая зарплата!")
+else:
+print("Подумай о подработке")`
 }
 },
 javascript: {
