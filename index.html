@@ -427,10 +427,38 @@ name: "C# 🎮",
 icon: "🎮",
 desc: "C# — твой выбор для создания игр! На нём работает Unity. Также хорош для Windows-программ и приложений для крупных компаний.",
 steps: {
-install: "Установи Visual Studio Community с официального сайта Microsoft",
-code: 'Console.WriteLine("Привет, мир!");\nConsole.Write("Как тебя зовут? ");\nstring name = Console.ReadLine();\nConsole.WriteLine($"Привет, {name}!");',
-project: "Создай простую игру 'Угадай число' в Unity",
-answer: "///"
+install: "1. Установи Visual Studio Community: https://visualstudio.microsoft.com/ru/downloads/\n2. При установке выбери нагрузку '.NET desktop development'\n3. Открой Visual Studio → Create new project → Console App\n4. Напиши код и нажми F5 для запуска",
+code: 'using System;\n\nclass Program\n{\n static void Main()\n {\n Console.WriteLine("=== КАЛЬКУЛЯТОР ЗАРПЛАТЫ ===\\n");\n\n Console.Write("Имя сотрудника: ");\n string name = Console.ReadLine();\n\n Console.Write("Зарплата до вычета налогов: ");\n double zarplata = Convert.ToDouble(Console.ReadLine());\n\n Console.Write("Ставка налога (%): ");\n double taxRate = Convert.ToDouble(Console.ReadLine());\n\n double tax = zarplata * taxRate / 100;\n double zarplataAfterTax = zarplata - tax;\n\n Console.WriteLine("\\n--- РЕЗУЛЬТАТ ---");\n Console.WriteLine("Сотрудник: " + name);\n Console.WriteLine("Налог к удержанию: " + tax + " руб.");\n Console.WriteLine("Зарплата на руки: " + zarplataAfterTax + " руб.");\n\n if (zarplataAfterTax > 20000)\n {\n Console.WriteLine("Хорошая зарплата!");\n }\n else\n {\n Console.WriteLine("Подумай о подработке");\n }\n\n Console.ReadLine();\n }\n}',
+project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
+answer: `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в Visual Studio):
+
+using System;
+
+class Program
+{
+static void Main()
+{
+string name = "Анна";
+double zarplata = 50000;
+double taxRate = 13;
+
+double tax = zarplata * taxRate / 100;
+double zarplataAfterTax = zarplata - tax;
+
+Console.WriteLine("Сотрудник: " + name);
+Console.WriteLine("Налог к удержанию: " + tax + " руб.");
+Console.WriteLine("Зарплата на руки: " + zarplataAfterTax + " руб.");
+
+if (zarplataAfterTax > 20000)
+{
+Console.WriteLine("Хорошая зарплата!");
+}
+else
+{
+Console.WriteLine("Подумай о подработке");
+}
+}
+}`
 }
 },
 java: {
