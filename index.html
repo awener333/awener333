@@ -371,7 +371,7 @@ icon: "🐍",
 desc: "Python — идеальный выбор для начинающих! Простой и понятный синтаксис, много библиотек для AI и анализа данных. Подходит для сайтов, ботов и научных задач.",
 steps: {
 install: "1. Перейди на официальный сайт Python: https://www.python.org/downloads/\n2. Выбери последнюю версию Python\n3. Скачай установщик под свою систему\n4. ВАЖНО: при установке поставь галочку 'Add Python to PATH'\n5. Установи среду для разработки PyCharm: https://www.jetbrains.com/pycharm/download/\n6. Открой PyCharm → New project → поставь галочку 'Create welcome script' → Create",
-code:  '# Переменные, ввод, числа, условия\n\nprint("=== Калькулятор возраста ===")\n\n# 1. Переменные и ввод\nname = input("Имя: ") # текст\nbirth_year = input("Год рождения: ") # текст\n\n# 2. Превращаем текст в число\nbirth_year = int(birth_year)\n\n# 3. Считаем\nage = 2026 - birth_year\n\n# 4. Выводим\nprint(name + ", тебе", age, "года/лет")\n\n# 5. Условие\nif age >= 18:\n print("Ты взрослый")\nelse:\n print("Ты школьник")\n\n# 6. Дроби (float)\npizza = float(input("Цена пиццы: "))\ncoke = float(input("Цена сока: "))\nprint("Всего:", pizza + coke, "руб.")',
+code:  '# Основы Py Переменные, ввод, числа, условия\n\nprint("=== Калькулятор возраста ===")\n\n# 1. Переменные и ввод\nname = input("Имя: ") # текст\nbirth_year = input("Год рождения: ") # текст\n\n# 2. Превращаем текст в число\nbirth_year = int(birth_year)\n\n# 3. Считаем\nage = 2026 - birth_year\n\n# 4. Выводим\nprint(name + ", тебе", age, "года/лет")\n\n# 5. Условие\nif age >= 18:\n print("Ты взрослый")\nelse:\n print("Ты школьник")\n\n# 6. Дроби (float)\npizza = float(input("Цена пиццы: "))\ncoke = float(input("Цена сока: "))\nprint("Всего:", pizza + coke, "руб.")',
 project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
 answer:  `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в PyCharm):
 
@@ -398,7 +398,7 @@ icon: "🌐",
 desc: "JavaScript — язык веба! Всё, что ты видишь в браузере, сделано на JS. Быстрый старт, мгновенный результат, много возможностей для творчества.",
 steps: {
 install: "JavaScript уже установлен на твоем компьютере. Открой блокнот, запиши код и сохрани файл с расширением .html",
-code: `// ВСЁ СРАЗУ на JS
+code: `// Основы JS
 
 // 1. Ввод (в браузере)
 let name = prompt("Имя:");
@@ -453,7 +453,7 @@ icon: "🎮",
 desc: "C# — твой выбор для создания игр! На нём работает Unity. Также хорош для Windows-программ и приложений для крупных компаний.",
 steps: {
 install: "1. Установи Visual Studio Community: https://visualstudio.microsoft.com/ru/downloads/\n2. При установке выбери нагрузку '.NET desktop development'\n3. Открой Visual Studio → Create new project → Console App\n4. Напиши код и нажми F5 для запуска",
-code: `// ВСЁ СРАЗУ на C#
+code: `// Основы C#
 
 using System;
 
@@ -534,7 +534,7 @@ icon: "☕",
 desc: "Java — стандарт для Android-разработки и крупных корпоративных систем. Стабильный, надежный, востребованный язык с высокой зарплатой.",
 steps: {
 install: "1. Установи JDK: https://www.oracle.com/java/technologies/downloads/\n2. Установи IntelliJ IDEA: https://www.jetbrains.com/idea/download/\n3. Открой IntelliJ → New Project → создай класс Main\n4. Напиши код и запусти зелёной кнопкой",
-code: `// ВСЁ СРАЗУ на Java
+code: `// Основы Java
 
 import java.util.Scanner;
 
@@ -542,7 +542,7 @@ public class Main {
 public static void main(String[] args) {
 Scanner scanner = new Scanner(System.in);
 
-System.out.println("=== Калькулятор возраста ===");
+System.out.println("Калькулятор возраста");
 
 // 1. Ввод
 System.out.print("Имя: ");
@@ -609,14 +609,14 @@ icon: "⚙️",
 desc: "C++ для тех, кто хочет понять, как всё работает внутри. Игры, сложные программы, высокая производительность — его стихия.",
 steps: {
 install: "1. Установи компилятор MinGW: https://sourceforge.net/projects/mingw/\n2. Установи VS Code с расширением C/C++\n3. Создай файл main.cpp\n4. В терминале напиши: g++ main.cpp -o program && ./program",
-code: `// ВСЁ СРАЗУ на C++
+code: `// Основы C++
 
 #include <iostream>
 #include <string>
 using namespace std;
 
 int main() {
-cout << "=== Калькулятор возраста ===\n";
+cout << "Калькулятор возраста\n";
 
 // 1. Ввод
 cout << "Имя: ";
