@@ -533,10 +533,74 @@ name: "Java ☕",
 icon: "☕",
 desc: "Java — стандарт для Android-разработки и крупных корпоративных систем. Стабильный, надежный, востребованный язык с высокой зарплатой.",
 steps: {
-install: "Установи JDK и IntelliJ IDEA Community Edition",
-code: 'public class Main {\n public static void main(String[] args) {\n System.out.println("Привет, мир!");\n }\n}',
-project: "Создай простое Android-приложение или калькулятор",
-answer: "///"
+install: "1. Установи JDK: https://www.oracle.com/java/technologies/downloads/\n2. Установи IntelliJ IDEA: https://www.jetbrains.com/idea/download/\n3. Открой IntelliJ → New Project → создай класс Main\n4. Напиши код и запусти зелёной кнопкой",
+code: `// ВСЁ СРАЗУ на Java
+
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+
+System.out.println("=== Калькулятор возраста ===");
+
+// 1. Ввод
+System.out.print("Имя: ");
+String name = scanner.nextLine();
+
+System.out.print("Год рождения: ");
+int birthYear = scanner.nextInt(); // Сразу число
+
+// 2. Считаем
+int age = 2026 - birthYear;
+
+// 3. Вывод
+System.out.println(name + ", тебе " + age + " лет");
+
+// 4. Условие
+if (age >= 18) {
+System.out.println("Ты взрослый");
+} else {
+System.out.println("Ты школьник");
+}
+
+// 5. Дроби
+System.out.print("Цена пиццы: ");
+double pizza = scanner.nextDouble();
+
+System.out.print("Цена сока: ");
+double coke = scanner.nextDouble();
+
+System.out.println("Всего: " + (pizza + coke) + " руб.");
+
+scanner.close();
+}
+}`,
+project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
+answer:  `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в IntelliJ IDEA):
+
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+String name = "Анна";
+double zarplata = 50000;
+double taxRate = 13;
+
+double tax = zarplata * taxRate / 100;
+double zarplataAfterTax = zarplata - tax;
+
+System.out.println("Сотрудник: " + name);
+System.out.println("Налог к удержанию: " + tax + " руб.");
+System.out.println("Зарплата на руки: " + zarplataAfterTax + " руб.");
+
+if (zarplataAfterTax > 20000) {
+System.out.println("Хорошая зарплата!");
+} else {
+System.out.println("Подумай о подработке");
+}
+}
+}`
 }
 },
 cpp: {
