@@ -398,7 +398,32 @@ icon: "🌐",
 desc: "JavaScript — язык веба! Всё, что ты видишь в браузере, сделано на JS. Быстрый старт, мгновенный результат, много возможностей для творчества.",
 steps: {
 install: "JavaScript уже установлен на твоем компьютере. Открой блокнот, запиши код и сохрани файл с расширением .html",
-code:  'console.log("=== КАЛЬКУЛЯТОР ЗАРПЛАТЫ ===\\n");\n\nlet name = prompt("Имя сотрудника:");\nlet zarplata = Number(prompt("Зарплата до вычета налогов:"));\nlet taxRate = Number(prompt("Ставка налога (%):"));\n\nlet tax = zarplata * taxRate / 100;\nlet zarplataAfterTax = zarplata - tax;\n\nconsole.log("\\n--- РЕЗУЛЬТАТ ---");\nconsole.log("Сотрудник:", name);\nconsole.log("Налог к удержанию:", tax, "руб.");\nconsole.log("Зарплата на руки:", zarplataAfterTax, "руб.");\n\nif (zarplataAfterTax > 20000) {\n console.log("Хорошая зарплата!");\n} else {\n console.log("Подумай о подработке");\n}\n\nalert(`Сотрудник ${name}, зарплата: ${zarplataAfterTax} руб.`);',
+code: `// ВСЁ СРАЗУ на JS
+
+// 1. Ввод (в браузере)
+let name = prompt("Имя:");
+let birthYear = prompt("Год рождения:");
+
+// 2. Превращаем в число
+birthYear = Number(birthYear);
+
+// 3. Считаем
+let age = 2026 - birthYear;
+
+// 4. Вывод
+console.log(name + ", тебе " + age + " лет");
+
+// 5. Условие
+if (age >= 18) {
+console.log("Взрослый");
+} else {
+console.log("Школьник");
+}
+
+// 6. Дроби
+let pizza = Number(prompt("Цена пиццы:"));
+let coke = Number(prompt("Цена сока:"));
+console.log("Всего: " + (pizza + coke) + " руб.");`,
 project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести в консоль:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
 answer:  `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в браузере):
 
