@@ -608,10 +608,76 @@ name: "C++ ⚙️",
 icon: "⚙️",
 desc: "C++ для тех, кто хочет понять, как всё работает внутри. Игры, сложные программы, высокая производительность — его стихия.",
 steps: {
-install: "Установи компилятор (MinGW для Windows или g++ для Linux/Mac)",
-code: '#include <iostream>\nusing namespace std;\nint main() {\n cout << "Привет, мир!" << endl;\n return 0;\n}',
-project: "Создай программу для решения квадратных уравнений",
-answer: "///"
+install: "1. Установи компилятор MinGW: https://sourceforge.net/projects/mingw/\n2. Установи VS Code с расширением C/C++\n3. Создай файл main.cpp\n4. В терминале напиши: g++ main.cpp -o program && ./program",
+code: `// ВСЁ СРАЗУ на C++
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+cout << "=== Калькулятор возраста ===\n";
+
+// 1. Ввод
+cout << "Имя: ";
+string name;
+getline(cin, name);
+
+cout << "Год рождения: ";
+int birthYear;
+cin >> birthYear;
+
+// 2. Считаем
+int age = 2026 - birthYear;
+
+// 3. Вывод
+cout << name << ", тебе " << age << " лет\n";
+
+// 4. Условие
+if (age >= 18) {
+cout << "Ты взрослый\n";
+} else {
+cout << "Ты школьник\n";
+}
+
+// 5. Дроби
+double pizza, coke;
+cout << "Цена пиццы: ";
+cin >> pizza;
+cout << "Цена сока: ";
+cin >> coke;
+
+cout << "Всего: " << pizza + coke << " руб.\n";
+
+return 0;
+}`,
+project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
+answer: `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти):
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+string name = "Анна";
+double zarplata = 50000;
+double taxRate = 13;
+
+double tax = zarplata * taxRate / 100;
+double zarplataAfterTax = zarplata - tax;
+
+cout << "Сотрудник: " << name << endl;
+cout << "Налог к удержанию: " << tax << " руб." << endl;
+cout << "Зарплата на руки: " << zarplataAfterTax << " руб." << endl;
+
+if (zarplataAfterTax > 20000) {
+cout << "Хорошая зарплата!" << endl;
+} else {
+cout << "Подумай о подработке" << endl;
+}
+
+return 0;
+}`
 }
 }
 };
