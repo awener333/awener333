@@ -428,7 +428,49 @@ icon: "🎮",
 desc: "C# — твой выбор для создания игр! На нём работает Unity. Также хорош для Windows-программ и приложений для крупных компаний.",
 steps: {
 install: "1. Установи Visual Studio Community: https://visualstudio.microsoft.com/ru/downloads/\n2. При установке выбери нагрузку '.NET desktop development'\n3. Открой Visual Studio → Create new project → Console App\n4. Напиши код и нажми F5 для запуска",
-code: 'using System;\n\nclass Program\n{\n static void Main()\n {\n Console.WriteLine("=== КАЛЬКУЛЯТОР ЗАРПЛАТЫ ===\\n");\n\n Console.Write("Имя сотрудника: ");\n string name = Console.ReadLine();\n\n Console.Write("Зарплата до вычета налогов: ");\n double zarplata = Convert.ToDouble(Console.ReadLine());\n\n Console.Write("Ставка налога (%): ");\n double taxRate = Convert.ToDouble(Console.ReadLine());\n\n double tax = zarplata * taxRate / 100;\n double zarplataAfterTax = zarplata - tax;\n\n Console.WriteLine("\\n--- РЕЗУЛЬТАТ ---");\n Console.WriteLine("Сотрудник: " + name);\n Console.WriteLine("Налог к удержанию: " + tax + " руб.");\n Console.WriteLine("Зарплата на руки: " + zarplataAfterTax + " руб.");\n\n if (zarplataAfterTax > 20000)\n {\n Console.WriteLine("Хорошая зарплата!");\n }\n else\n {\n Console.WriteLine("Подумай о подработке");\n }\n\n Console.ReadLine();\n }\n}',
+code: `// ВСЁ СРАЗУ на C#
+
+using System;
+
+class Program
+{
+static void Main()
+{
+Console.WriteLine("=== Калькулятор возраста ===");
+
+// 1. Ввод
+Console.Write("Имя: ");
+string name = Console.ReadLine();
+
+Console.Write("Год рождения: ");
+int birthYear = int.Parse(Console.ReadLine()); // Превращаем
+
+// 2. Считаем
+int age = 2026 - birthYear;
+
+// 3. Вывод
+Console.WriteLine(name + ", тебе " + age + " лет");
+
+// 4. Условие
+if (age >= 18)
+{
+Console.WriteLine("Ты взрослый");
+}
+else
+{
+Console.WriteLine("Ты школьник");
+}
+
+// 5. Дроби
+Console.Write("Цена пиццы: ");
+double pizza = double.Parse(Console.ReadLine());
+
+Console.Write("Цена сока: ");
+double coke = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Всего: " + (pizza + coke) + " руб.");
+}
+}`,
 project: "Напиши программу, которая считает зарплату после вычета налогов:\n- Зарплата до налогов: 50000 руб.\n- Налог: 13%\nПрограмма должна вывести:\n- Сколько денег удержат\n- Сколько получишь на руки\n- Сообщение: если зарплата после налогов больше 20000 руб. → 'Хорошая зарплата', иначе → 'Подумай о подработке'",
 answer: `# КОД ДЛЯ ПРОВЕРКИ (скопируй и запусти в Visual Studio):
 
